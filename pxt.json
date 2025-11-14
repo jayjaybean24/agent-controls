@@ -7,7 +7,8 @@
         "makecode-minecraft-music": "github:microsoft/makecode-minecraft-music#v0.0.8",
         "events": "*",
         "makecode-minecraft-space": "github:microsoft/makecode-minecraft-space#v0.0.3",
-        "makecode-minecraft-mob-events": "github:microsoft/makecode-minecraft-mob-events#v0.0.2"
+        "makecode-minecraft-mob-events": "github:microsoft/makecode-minecraft-mob-events#v0.0.2",
+        "makecode-minecraft-pixel-art": "github:microsoft/makecode-minecraft-pixel-art#v0.0.4"
     },
     "files": [
         "main.blocks",

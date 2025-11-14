@@ -38,10 +38,6 @@ player.onChat("slave", function () {
     agent.till(LEFT)
     agent.till(RIGHT)
 })
-player.onChat("god is here", function () {
-    gameplay.title(mobs.target(LOCAL_PLAYER), "GOD", "The Agent Controller/Admin")
-    agent.teleportToPlayer()
-})
 player.onChat("down", function () {
     agent.move(BACK, 1)
 })
@@ -61,6 +57,17 @@ player.onChat("old man", function () {
 player.onChat("turn right", function () {
     agent.turn(RIGHT_TURN)
 })
+player.onChat("hunt", function () {
+    gameplay.title(mobs.target(LOCAL_PLAYER), "HUNTER", "The Target Hunter")
+    player.tell(mobs.target(NEAREST_PLAYER), "you are the target... RUN")
+    gameplay.title(mobs.target(NEAREST_PLAYER), "TARGET", "The Grave Soul")
+    gameplay.setGameRule(PV_P, true)
+    mobs.applyEffect(REGENERATION, mobs.target(LOCAL_PLAYER), 600, 255)
+    mobs.applyEffect(NIGHT_VISION, mobs.target(LOCAL_PLAYER), 600, 255)
+    mobs.applyEffect(HEALTH_BOOST, mobs.target(LOCAL_PLAYER), 600, 255)
+    mobs.applyEffect(STRENGTH, mobs.target(LOCAL_PLAYER), 600, 255)
+    mobs.applyEffect(HASTE, mobs.target(LOCAL_PLAYER), 600, 255)
+})
 player.onChat("armmor", function () {
     agent.collect(IRON_HELMET)
     agent.collect(IRON_CHESTPLATE)
@@ -70,6 +77,26 @@ player.onChat("armmor", function () {
 player.onChat("attack", function () {
     agent.attack(FORWARD)
     agent.destroy(FORWARD)
+})
+player.onChat("henry", function () {
+    pixelArt.drawImage(img`
+        . f f f f f f f f f f . 
+        f 7 7 7 7 7 7 7 7 7 7 f 
+        f 7 7 7 7 7 7 7 7 7 7 f 
+        f 7 7 7 7 7 7 7 7 7 7 f 
+        f 7 7 7 7 7 7 7 7 7 7 f 
+        f 7 f 7 7 7 7 7 7 7 7 f 
+        f 7 7 7 7 7 7 7 7 f 7 f 
+        f 7 7 7 7 7 7 7 7 7 7 f 
+        f 7 7 7 7 f f f 7 7 7 f 
+        f 7 7 7 7 7 9 9 7 7 7 f 
+        . f f 7 7 7 7 9 7 f f . 
+        . . f 7 7 7 7 7 7 f . . 
+        . . f 7 7 7 7 7 7 f . . 
+        . . f 7 7 7 7 7 7 f . . 
+        . f f 7 f . . f 7 f f . 
+        . f 7 7 f . . f 7 7 f . 
+        `, pos(0, 0, 0), WEST)
 })
 player.onChat("turn left", function () {
     agent.turn(LEFT_TURN)
