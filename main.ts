@@ -7,6 +7,12 @@ player.onChat("collect", function () {
 player.onChat("left", function () {
     agent.move(LEFT, 1)
 })
+player.onChat("dig", function () {
+    agent.move(DOWN, 1)
+})
+player.onChat("jump", function () {
+    agent.move(UP, 1)
+})
 player.onChat("right", function () {
     agent.move(RIGHT, 1)
 })
@@ -18,6 +24,16 @@ player.onChat("equipment", function () {
     agent.collect(IRON_HOE)
 })
 player.onChat("come", function () {
+    agent.teleportToPlayer()
+})
+player.onChat("slave", function () {
+    agent.till(FORWARD)
+    agent.till(BACK)
+    agent.till(LEFT)
+    agent.till(RIGHT)
+})
+player.onChat("god is here", function () {
+    gameplay.title(mobs.target(LOCAL_PLAYER), "GOD", "The Agent Controller/Admin")
     agent.teleportToPlayer()
 })
 player.onChat("down", function () {
